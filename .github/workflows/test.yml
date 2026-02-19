@@ -1,25 +1,10 @@
-name: Test Pipeline
-
-on: 
-  push:
-    branches: [main]
+name: Hello CI
+on: [push, pull_request]  
 
 jobs:
-  build:
+  hello:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Code auschecken
-        uses: actions/checkout@v4
-
-      - name: Node installieren
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Abhängigkeiten installieren
-        run: npm install
-
-      - name: Tests ausführen
-        run: npm test
-        
+    - uses: actions/checkout@v4
+    - run: echo "läuft auf GitHub Runner"
+    - run: uname -a
